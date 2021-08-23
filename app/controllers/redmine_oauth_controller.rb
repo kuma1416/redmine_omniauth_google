@@ -7,7 +7,7 @@ class RedmineOauthController < AccountController
   def oauth_google
     if Setting.plugin_redmine_omniauth_google[:oauth_authentification]
       session[:back_url] = params[:back_url]
-      redirect_to oauth_client.auth_code.authorize_url(:redirect_uri => oauth_google_callback_url, :scope => scopes)
+      redirect_to oauth_client.auth_code.authorize_url(:redirect_uri => settings[:Redirect_URI], :scope => scopes)
     else
       password_authentication
     end
@@ -18,7 +18,7 @@ class RedmineOauthController < AccountController
       flash[:error] = l(:notice_access_denied)
       redirect_to signin_path
     else
-      token = oauth_client.auth_code.get_token(params[:code], :redirect_uri => oauth_google_callback_url)
+      token = oauth_client.auth_code.get_token(params[:code], :redirect_uri => settings[:Redirect_URI])
       result = token.get('https://www.googleapis.com/oauth2/v1/userinfo')
       info = JSON.parse(result.body)
       if info && info["verified_email"]
