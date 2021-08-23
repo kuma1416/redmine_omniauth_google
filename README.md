@@ -2,6 +2,10 @@
 
 This plugin is used to authenticate Redmine users using Google's OAuth2 provider.
 
+### This plugin can work on the redmine versions below :
+
+Redmine 4.1
+
 ### Installation:
 
 Download the plugin and install required gems:
@@ -42,6 +46,7 @@ To authenticate via Google you must first register your redmine instance via the
 * Click "Plugins"
 * In plugins list, click "Configure" in the row for "Redmine Omniauth Google plugin"
 * Enter the Сlient ID & Client Secret shown when you registered your application via Google Cloud Console.
+* Enter Redirect URI "https://mydomain.com/redmine/oauth2callback"
 * Check the box near "Oauth authentication"
 * Click Apply. 
  
