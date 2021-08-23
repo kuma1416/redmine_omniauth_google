@@ -13,6 +13,7 @@ Redmine::Plugin.register :redmine_omniauth_google do
     :client_id => "",
     :client_secret => "",
     :oauth_autentification => false,
-    :allowed_domains => ""
+    :allowed_domains => "",
+    :Redirect_URI => ""
   }, :partial => 'settings/google_settings'
 end
